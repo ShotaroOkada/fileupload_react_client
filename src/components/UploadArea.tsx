@@ -3,13 +3,14 @@ import DropZone from 'react-dropzone'
 import { useDispatch } from 'react-redux'
 import { postFiles } from '../actions/Files/FilesActionCreator';
 
-const onDrop = (Files:File[]) => {
-    const dispatch = useDispatch();
-    dispatch(postFiles.request({files: Files}))
-    console.log(Files)
-}
-
 const UploadArea: React.FC = () => {
+    const dispatch = useDispatch();
+
+    const onDrop = (acceptedFiles:File[]) => {
+        dispatch(postFiles.request({files: acceptedFiles}))
+        console.log(acceptedFiles)
+    }
+
     return (
         <div>
             <DropZone onDrop={onDrop}>
