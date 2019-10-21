@@ -1,6 +1,8 @@
 export type GetFilesQuery = undefined
 
-export type GetFilesResponse = string[]
+export type GetFilesResponse = {
+    [key:string]: string
+}
 
 export type PostFilesQuery = string[]
 

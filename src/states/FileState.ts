@@ -1,5 +1,5 @@
 type FileState = {
-    linkURLs: string[]
+    [key:string]: string    
 }
 
 export default FileState;
