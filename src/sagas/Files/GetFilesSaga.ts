@@ -3,10 +3,9 @@ import { getFiles } from "../../actions/Files/FilesActionCreator";
 import { PromiseGenericType } from "../../utils/TypeUtils";
 import { getFilesClient } from '../../apis/Files/GetFilesClient';
 
-export function* getFilesSaga(action: ReturnType<typeof getFiles.request>) {
+export function* getFilesSaga() {
     const response: PromiseGenericType<ReturnType<typeof getFilesClient>> = yield call(
-        getFilesClient,
-        action.payload
+        getFilesClient
     );
 
     if(response.status === 200 && response.data) {

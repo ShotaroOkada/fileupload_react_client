@@ -7,7 +7,7 @@ const App: React.FC = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getFiles.request({}))
+    dispatch(getFiles.request())
   })
         
   return (
