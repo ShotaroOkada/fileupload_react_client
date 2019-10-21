@@ -1,5 +1,5 @@
 type FileState = {
-    files: File[]
+    linkURLs: string[]
 }
 
 export default FileState;

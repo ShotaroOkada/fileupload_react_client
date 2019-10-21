@@ -3,7 +3,7 @@ import FilesAction from "../actions/Files/FilesAction";
 import FilesActionType from "../actions/Files/FilesActionType";
 
 const initialState: FileState = {
-    files: []
+    linkURLs: []
 }
 
 export default (state: FileState = initialState, action: FilesAction): FileState => {
@@ -11,7 +11,7 @@ export default (state: FileState = initialState, action: FilesAction): FileState
         case FilesActionType.GET_FILES_SUCCESS:
             return {
                 ...state,
-                files: [...action.payload.files]
+                ...action.payload
             }
         default:
             return state

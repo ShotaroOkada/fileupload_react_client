@@ -6,9 +6,10 @@ import { postFiles } from '../actions/Files/FilesActionCreator';
 const UploadArea: React.FC = () => {
     const dispatch = useDispatch();
 
-    const onDrop = (acceptedFiles:File[]) => {
-        dispatch(postFiles.request({files: acceptedFiles}))
-        console.log(acceptedFiles)
+    const onDrop = (acceptedFiles: any) => {
+        const filePaths: string[] = acceptedFiles.map((file:any) => file.path)
+        dispatch(postFiles.request(filePaths))
+        console.log(filePaths)
     }
 
     return (
