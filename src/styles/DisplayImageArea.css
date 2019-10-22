@@ -1,0 +1,17 @@
+.displayImageAreaContainer {
+    margin-top: 50px;
+}
+
+.displayAreaTitle {
+    width: 90vw;
+    margin: auto;
+}
+
+.displayImageContainer {
+    width: 90vw;
+    margin: auto;
+}
+
+.image {
+    width: 100px;
+}

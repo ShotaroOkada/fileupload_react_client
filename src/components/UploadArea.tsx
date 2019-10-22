@@ -2,27 +2,29 @@ import React from 'react'
 import DropZone from 'react-dropzone'
 import { useDispatch } from 'react-redux'
 import { postFiles } from '../actions/Files/FilesActionCreator';
+import { postFilesParams } from '../apis/Files/PostFilesClient';
+import "../styles/UploadArea.css"
+
 
 const UploadArea: React.FC = () => {
     const dispatch = useDispatch();
 
     const onDrop = (acceptedFiles: File[]) => {
-        let fileURL = ''
-        const filePaths: string[] = acceptedFiles.map((file) => {
-        // blob形式に変換
-        fileURL = URL.createObjectURL(file);
-        return fileURL
+        let urls:postFilesParams = [];
+        acceptedFiles.forEach(file => {
+            console.log(`file:${JSON.stringify(file.type)}`)
+            const url = URL.createObjectURL(file);
+            urls.push({url, file})
         })
-        dispatch(postFiles.request(filePaths))
-        console.log(filePaths)
+        dispatch(postFiles.request(urls))
     }
 
     return (
         <div>
-            <DropZone onDrop={onDrop}>
+            <DropZone  onDrop={onDrop}>
                 {({getRootProps, isDragActive}) => (
-                    <div {...getRootProps()}>
-                        {isDragActive ? "Drop it like it's hot!" : 'Click me or drag a file to upload!'}
+                    <div className={isDragActive ? 'uploadContainerOnDrag' : 'uploadContainer'} {...getRootProps()}>
+                        {isDragActive ? "Drop it like it's hot!" : 'Drag a file to upload!'}
                     </div>
                 )}
             </DropZone>

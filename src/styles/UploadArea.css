@@ -1,0 +1,18 @@
+.uploadContainer {
+    width: 90vw;
+    height: 30vh;
+    margin: auto;
+    line-height: 30vh;
+    text-align: center;
+    border-style: dotted;
+}
+
+.uploadContainerOnDrag {
+    width: 90vw;
+    height: 30vh;
+    margin: auto;
+    line-height: 30vh;
+    text-align: center;
+    border-style: dotted;
+    background-color: palegreen;
+}
