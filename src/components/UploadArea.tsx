@@ -6,8 +6,13 @@ import { postFiles } from '../actions/Files/FilesActionCreator';
 const UploadArea: React.FC = () => {
     const dispatch = useDispatch();
 
-    const onDrop = (acceptedFiles: any) => {
-        const filePaths: string[] = acceptedFiles.map((file:any) => file.path)
+    const onDrop = (acceptedFiles: File[]) => {
+        let fileURL = ''
+        const filePaths: string[] = acceptedFiles.map((file) => {
+        // blob形式に変換
+        fileURL = URL.createObjectURL(file);
+        return fileURL
+        })
         dispatch(postFiles.request(filePaths))
         console.log(filePaths)
     }

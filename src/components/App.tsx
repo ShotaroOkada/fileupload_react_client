@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import UploadArea from './UploadArea';
 import { useDispatch } from 'react-redux';
 import { getFiles } from '../actions/Files/FilesActionCreator';
+import DisplayImageArea from './DisplayImageArea';
 
 const App: React.FC = () => {
   const dispatch = useDispatch();
@@ -13,6 +14,7 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <UploadArea/>
+      <DisplayImageArea/>
     </div>
   );
 }
