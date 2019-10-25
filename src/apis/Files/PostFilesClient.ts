@@ -1,11 +1,13 @@
 import Axios from "../Axios";
 
-type postFilesParam = {
-    url: string,
-    file: File
-}
+// export type postFilesParam = {
+//     file: File,
+//     blob: Blob
+// }
 
-export type postFilesParams = postFilesParam[]
+export type postFilesParam = FormData
+
+export type postFilesParams = FormData
 export type postFilesResponse = undefined;
 
 export async function postFilesClient(params: postFilesParams) {

@@ -2,7 +2,6 @@ import React from 'react'
 import DropZone from 'react-dropzone'
 import { useDispatch } from 'react-redux'
 import { postFiles } from '../actions/Files/FilesActionCreator';
-import { postFilesParams } from '../apis/Files/PostFilesClient';
 import "../styles/UploadArea.css"
 
 
@@ -10,13 +9,15 @@ const UploadArea: React.FC = () => {
     const dispatch = useDispatch();
 
     const onDrop = (acceptedFiles: File[]) => {
-        let urls:postFilesParams = [];
+        const formData = new FormData();
         acceptedFiles.forEach(file => {
-            console.log(`file:${JSON.stringify(file.type)}`)
-            const url = URL.createObjectURL(file);
-            urls.push({url, file})
+            console.dir(file)
+            // const url = URL.createObjectURL(file);
+            formData.append('myFile', file)
         })
-        dispatch(postFiles.request(urls))
+        
+        console.log(formData)
+        dispatch(postFiles.request(formData))
     }
 
     return (
