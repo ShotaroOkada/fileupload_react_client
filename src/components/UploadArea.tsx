@@ -12,8 +12,7 @@ const UploadArea: React.FC = () => {
         const formData = new FormData();
         acceptedFiles.forEach(file => {
             console.dir(file)
-            // const url = URL.createObjectURL(file);
-            formData.append('myFile', file)
+            formData.append('Files', file)
         })
         
         console.log(formData)
