@@ -7,7 +7,6 @@ export function* getFilesSaga() {
     const response: PromiseGenericType<ReturnType<typeof getFilesClient>> = yield call(
         getFilesClient
     );
-
     if(response.status === 200 && response.data) {
         yield put(getFiles.success(response.data));
     } else if (response.status === 400) {

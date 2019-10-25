@@ -1,8 +1,8 @@
 import Axios from "../Axios";
-import { Files } from "./Model";
+import FileState from "../../states/FileState";
 
 export type getFilesParams = undefined;
-export type getFilesResponse = Files;
+export type getFilesResponse = FileState;
 
 export async function getFilesClient() {
     try {
